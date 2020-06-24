@@ -11,7 +11,7 @@ script:
   - docker run -e CI=true shysan/react-test npm test
 
 after_success:
-  - docker build -t shysan/multi-client  ./client
+  - docker build -t shysan/multi-client ./client
   - docker build -t shysan/multi-nginx ./nginx
   - docker build -t shysan/multi-worker ./worker
   - docker build -t shysan/multi-server ./server
