@@ -22,3 +22,15 @@ after_success:
   - docker push shysan/multi-nginx
   - docker push shysan/multi-worker
   - docker push shysan/multi-server
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-west-1"
+  app: "MultiDocker"
+  env: "Multidocker-env"
+  bucket_name: "elasticbeanstalk-us-west-1-104595938086"
+  bucket_path: "multidocker"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
